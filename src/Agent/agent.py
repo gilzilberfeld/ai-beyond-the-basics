@@ -1,8 +1,10 @@
+from pathlib import Path
+
 import google.generativeai as genai
 from google.api_core import exceptions
 import re
 
-PROMPT_FILE = "prompt.txt"
+PROMPT_FILE = PROMPT_FILE_PATH = Path(__file__).parent / "prompt.txt"
 GEMINI_KEY_LENGTH = 39
 
 
@@ -26,15 +28,14 @@ class APITestPlanAgent:
             full_prompt = self._create_full_prompt(endpoint_info, prompt_template)
         except KeyError as e:
             return f"Error: The prompt template is missing a key: {e}"
-
         try:
             response = self.model.generate_content(full_prompt)
             formatted_plan = self._format_plan(response.text)
             return formatted_plan
         except (exceptions.GoogleAPICallError, exceptions.RetryError, ValueError) as e:
-            return f"Error: Could not generate the test plan due to an API error."
+            return f"Model API error: " + str(e)
         except Exception as e:
-            return "Error: An unexpected error occurred while generating the test plan."
+            return "Model Error: An unexpected error occurred: " + str(e)
 
     def _load_prompt_template(self, filepath=PROMPT_FILE):
         try:

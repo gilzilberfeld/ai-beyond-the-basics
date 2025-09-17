@@ -29,4 +29,4 @@ def test_agent_handles_model_api_error_gracefully(mock_generate_content):
                              model_name=GEMINI_MODEL_NAME)
     endpoint_info = {"method": "GET", "path": "/test"}
     result = agent.generate_plan_for_endpoint(endpoint_info)
-    assert result == "Error: Could not generate the test plan due to an API error."
+    assert "API error" in result

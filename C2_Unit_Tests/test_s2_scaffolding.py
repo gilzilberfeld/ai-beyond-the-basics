@@ -25,7 +25,6 @@ def test_format_plan_with_valid_markdown_formats_correctly():
         "### Happy Path\n- Test case 1\n"
     )
     formatted_plan = agent._format_plan(raw_response)
-
     assert "API EXPLANATION" in formatted_plan
     assert "---------------" in formatted_plan
     assert "This is a test." in formatted_plan
@@ -58,6 +57,6 @@ def test_generate_plan_for_endpoint_with_mock_model(mock_generate_content):
     agent = APITestPlanAgent(api_key=VALID_FAKE_KEY, model_name=GEMINI_MODEL_NAME)
     endpoint_info = {"method": "POST", "path": "/login"}
     final_plan = agent.generate_plan_for_endpoint(endpoint_info)
-
+    print (final_plan)
     assert "API EXPLANATION" in final_plan
     assert "Mocked explanation." in final_plan

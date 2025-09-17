@@ -1,0 +1,1 @@
+VALID_FAKE_KEY = "fake_api_key_for_testing_12345678901234"

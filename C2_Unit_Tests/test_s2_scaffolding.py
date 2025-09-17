@@ -1,9 +1,9 @@
 from unittest.mock import patch
 
 from Agent.agent import APITestPlanAgent
+from C2_Unit_Tests.common import VALID_FAKE_KEY
 from config import GEMINI_MODEL_NAME
 
-VALID_FAKE_KEY = "fake_api_key_for_testing_12345678901234"
 
 # --- Test Case 1: Validate the prompt creation logic ---
 def test_full_prompt_formats_correctly():

@@ -1,0 +1,1 @@
+Plumbing S3 includes validation in constructor. Maybe move to S2.

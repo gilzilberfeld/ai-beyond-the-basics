@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from agent import APITestPlanAgent
+from Agent.agent import APITestPlanAgent
 from config import GEMINI_API_KEY, GEMINI_MODEL_NAME
 
 app = Flask(__name__)

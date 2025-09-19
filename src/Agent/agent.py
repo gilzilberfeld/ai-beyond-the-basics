@@ -21,7 +21,7 @@ class APITestPlanAgent:
         self.model_name = model_name
         self.model = genai.GenerativeModel(self.model_name)
 
-    def generate_plan_for_endpoint(self, endpoint_info):
+    def generate_plan_for_endpoint(self, endpoint_info,generation_config=None):
         prompt_template = self._load_prompt_template()
 
         try:
@@ -29,7 +29,7 @@ class APITestPlanAgent:
         except KeyError as e:
             return f"Error: The prompt template is missing a key: {e}"
         try:
-            response = self.model.generate_content(full_prompt)
+            response = self.model.generate_content(full_prompt, generation_config=generation_config)
             formatted_plan = self._format_plan(response.text)
             return formatted_plan
         except (exceptions.GoogleAPICallError, exceptions.RetryError, ValueError) as e:

@@ -2,7 +2,7 @@ import requests
 import json
 
 # The URL of your locally running Flask controller
-CONTROLLER_URL = "http://127.0.0.1:5001/generate-plan"
+AGENT_URL = "http://127.0.0.1:5001/generate-plan"
 
 # The endpoint info we want to generate a plan for
 ENDPOINT_INFO = {
@@ -22,7 +22,7 @@ def generate_low_quality_plan():
     print("--------------------------------------------------")
 
     try:
-        response = requests.post(CONTROLLER_URL, json=ENDPOINT_INFO, timeout=30)
+        response = requests.post(AGENT_URL, json=ENDPOINT_INFO, timeout=30)
 
         # Check if the request was successful
         response.raise_for_status()
@@ -37,7 +37,7 @@ def generate_low_quality_plan():
 
     except requests.exceptions.RequestException as e:
         print(f"\n--- ERROR ---")
-        print(f"Could not connect to the controller at {CONTROLLER_URL}")
+        print(f"Could not connect to the controller at {AGENT_URL}")
         print("Please make sure the controller.py server is running in a separate terminal.")
         print(f"Details: {e}")
     except json.JSONDecodeError:

@@ -30,8 +30,13 @@ class APITestPlanAgent:
             return f"Error: The prompt template is missing a key: {e}"
         try:
             response = self.model.generate_content(full_prompt, generation_config=generation_config)
+            raw_plan = response.text
+            if not raw_plan or not raw_plan.strip():
+                return "Error: The AI model returned an empty plan. This may be due to a content safety filter or a token limit."
+
             formatted_plan = self._format_plan(response.text)
             return formatted_plan
+
         except (exceptions.GoogleAPICallError, exceptions.RetryError, ValueError) as e:
             return f"Model API error: " + str(e)
         except Exception as e:

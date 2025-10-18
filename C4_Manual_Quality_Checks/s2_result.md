@@ -12,7 +12,7 @@ This endpoint retrieves a user's information based on the provided unique ID. It
         1.  Send a GET request to `/users/{id}` with a known valid user ID (e.g., `/users/123`).
         *   **Expected Result:**
             *   HTTP Status Code: 200 OK
-            *   Response Body:  Contains the user's data (e.g., `{ "id": 123, "username": "testuser", "email": "test@example.com" }`) and the data matches the expected user.
+            *   Response Body:  Contains the user's data (e.g., `{ "id": 123, "username": "gil", "email": "gil@testingil.com" }`) and the data matches the expected user.
 
 *   **Test Case 2: Response Content Type is JSON**
     *   **Description:** Verify that the response is returned with the `application/json` content type.

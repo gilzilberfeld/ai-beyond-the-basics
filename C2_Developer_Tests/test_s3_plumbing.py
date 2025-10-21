@@ -3,7 +3,7 @@ from unittest.mock import patch
 from google.api_core import exceptions
 
 from Agent.agent import APITestPlanAgent
-from C2_Unit_Tests.common import VALID_FAKE_KEY
+from C2_Developer_Tests.common import VALID_FAKE_KEY
 from config import GEMINI_MODEL_NAME
 
 

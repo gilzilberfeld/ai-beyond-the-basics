@@ -1,7 +1,7 @@
 
-| Section | 	Content                                                                                                                                                                |
-|:---------------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| API Explanation	| This endpoint retrieves a single user's profile information...                                                                                                          |
-| Happy Path	| - Retrieve an existing user with a valid ID...<br>- **(NEW)** Verify the response does not contain sensitive, non-public user data (e.g., password hash, home address). |
-| Unhappy Path	| - Request a user with a non-existent ID...<br>- Request a user with an invalid ID...<br>                                                                                |
-| Edge Cases	| - Request a user with the lowest possible valid ID (e.g., 1).                                                                                                           |
+| Section | 	Content                                                                                                                                                                       |
+|:---------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| API Explanation	| This endpoint retrieves a single user's profile information...                                                                                                                 |
+| Happy Path	| - Retrieve an existing user with a valid ID...<br>- **(NEW)** Verify the response does not contain sensitive, non-public user data (e.g., password hash, email, home address). |
+| Unhappy Path	| - Request a user with a non-existent ID...<br>- Request a user with an invalid ID...<br>                                                                                       |
+| Edge Cases	| - Request a user with the lowest possible valid ID (e.g., 1).                                                                                                                  |

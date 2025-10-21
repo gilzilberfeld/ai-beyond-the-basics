@@ -25,10 +25,10 @@ def test_plan_categorizes_tests_correctly():
     invalid_keyword_index = plan.find("invalid")
 
     if invalid_keyword_index != -1 and happy_path_index != -1 and unhappy_path_index != -1:
-        # Unhappy "includes" invalid
-        assert invalid_keyword_index > unhappy_path_index
         # Happy before unhappy
         assert unhappy_path_index > happy_path_index
+        # Unhappy "includes" invalid
+        assert invalid_keyword_index > unhappy_path_index
 
 # --- Test Case 3:  Test the live agent with a diversity of valid inputs
 @pytest.mark.parametrize("test_input, expected_keywords", [
